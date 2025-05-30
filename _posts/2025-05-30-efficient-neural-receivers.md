@@ -450,6 +450,16 @@ As such, the RTX 6000 Ada offers a more cost-effective and latency-efficient sol
 
 
 # Conclusions
+In this work, we explored the design and optimization of a neural receiver (NRX) suitable for real-time operation in 5G NR systems. Despite the well-established performance benefits of neural receivers, their practical deployment has been limited due to strict URLLC latency constraints and hardware efficiency concerns. To address these challenges, we proposed EffNRX, a streamlined and systematically optimized neural receiver architecture.
+We evaluated three key model compression techniques—quantization, pruning, and knowledge distillation—to understand their impact on latency, accuracy, and hardware efficiency:
+- Quantization, particularly FP8, offered the best trade-off by significantly reducing inference time with minimal performance degradation.
+- Pruning, both unstructured and 2:4 structured, resulted in negligible latency improvement and caused noticeable drops in accuracy, making it less suitable for real-time deployment in NRX systems.
+- Knowledge distillation effectively improved the performance of lightweight models like NRX_RT without increasing latency, demonstrating its value as a complementary technique to quantization.
+
+Based on extensive experiments, we identified an optimal configuration: NRX_Large with FP8 quantization and a reduced number of CGNN iterations (e.g., 6). This configuration—EffNRX—achieves near state-of-the-art error correction performance while satisfying sub-millisecond latency requirements on commercial GPUs like the RTX 6000 Ada.
+
+Furthermore, we benchmarked EffNRX against baselines such as OAI and conventional receivers (e.g., LMMSE + K-best), demonstrating 6.08× better error-rate performance and 3.26× faster processing compared to the best-performing FP16 variant. These findings confirm that neural baseband processing is now not only theoretically appealing but also practically viable with careful design and deployment strategies.
+
+Looking ahead, combining distillation with quantized inference, exploring hardware-aware architecture redesign, and leveraging emerging GPU acceleration features such as sparse tensor cores will be key to further pushing the boundaries of efficient neural signal processing for 6G and beyond.
+
 {% include figure.html path="assets/img/2025-05-30-efficient-neural-receivers/Image_BER.png" class="img-fluid rounded z-depth-1" %}
-
-
