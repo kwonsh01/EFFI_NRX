@@ -6,6 +6,10 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     imagemagick \
     build-essential \
     zlib1g-dev \
+    curl \
+    inotify-tools \
+    procps \
+    ca-certificates \
     jupyter-nbconvert \
     inotify-tools procps && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
@@ -19,6 +23,10 @@ ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8 \
     JEKYLL_ENV=production
+
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g @mermaid-js/mermaid-cli
 
 RUN mkdir /srv/jekyll
 
