@@ -440,6 +440,7 @@ Knowledge distillation can be controlled using the following equation:
 $$
 \text{Loss} = \alpha \cdot \text{Loss}_\text{student} + (1-\alpha) \cdot \text{Loss}_\text{distillation}
 $$
+
 Here, $\alpha \in [0, 1]$ is a weighting factor that controls student's loss and the distillation loss based on the teacher’s outputs. A lower alpha means the student relies more on the teacher's guidance.
 
 {% include figure.html path="assets/img/2025-05-30-efficient-neural-receivers/distill_loss.png" class="img-fluid rounded z-depth-1" %}
