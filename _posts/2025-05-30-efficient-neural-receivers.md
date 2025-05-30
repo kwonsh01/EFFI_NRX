@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: "Accelerating Efficient Neural Receivers for Real-Time 5G Communication: Methods and Implementation"
-description: This work introduces EffNRX, a highly optimized neural receiver designed for real-time 5G NR operation, addressing latency and hardware efficiency challenges through quantization and knowledge distillation. EffNRX achieves state-of-the-art error correction with sub-millisecond latency on commercial GPUs, demonstrating the practical viability of neural baseband processing.
+description: Neural receivers offer significant performance benefits for 5G NR systems, but their real-time deployment is challenging due to strict URLLC latency and hardware efficiency requirements. This work introduces EffNRX, a systematically optimized neural receiver designed to overcome these limitations. We thoroughly evaluated quantization, pruning, and knowledge distillation, finding that FP8 quantization delivered the best trade-off between speed and accuracy. Our optimal configuration, EffNRX (NRX_Large with FP8 quantization and 6 CGNN iterations), achieves near state-of-the-art error correction while meeting sub-millisecond latency on commercial GPUs. Benchmarking against baselines like OAI, EffNRX demonstrates 6.08× better error-rate performance and 3.26× faster processing, proving that neural baseband processing is now practically viable for high-performance, real-time wireless communication.
 date: 2025-05-30
 future: true
 htmlwidgets: true
